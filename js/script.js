@@ -8,7 +8,15 @@ createApp({
       newTask: "",
     };
   },
-  methods: {},
+  methods: {
+    readList() {
+      axios.get(this.apiUrl).then((response) => {
+        this.todolist = response.data;
+      });
+    },
+  },
 
-  mounted() {},
+  mounted() {
+    this.readList();
+  },
 }).mount("#app");
