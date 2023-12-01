@@ -14,6 +14,17 @@ createApp({
         this.todolist = response.data;
       });
     },
+    addTask() {
+      if (this.newTask == "") {
+        return;
+      }
+      const data = new FormData();
+      data.append("task", this.newTask);
+
+      axios.post(this.apiUrl, data).then((response) => {
+        this.todolist = response.data;
+      });
+    },
   },
 
   mounted() {
