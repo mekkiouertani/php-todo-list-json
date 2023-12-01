@@ -24,8 +24,11 @@
                     <div class="col-12">
                         <h1 class="display-1 text-light">Todo List</h1>
                         <ul class="list-group list-group-flush border border-1 rounded">
-                            <li v-for="(task, index) in todolist" :key="index" class="list-group-item"
-                                :class="{'text-decoration-line-through' : task.done}">{{task.name}}
+                            <li v-for="(task, index) in todolist" :key="index"
+                                class="list-group-item cp d-flex justify-content-between">
+                                <span :class="{'text-decoration-line-through' : task.done}"
+                                    @click="markAsDone(index)">{{task.name}}</span>
+                                <span @click="deleteRow(index)">X</span>
                             </li>
                         </ul>
                     </div>

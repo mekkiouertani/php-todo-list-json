@@ -26,6 +26,22 @@ createApp({
       });
       this.newTask = "";
     },
+    markAsDone(index) {
+      const data = new FormData();
+      data.append("index", index);
+
+      axios.post(this.apiUrl, data).then((response) => {
+        this.todolist = response.data;
+      });
+    },
+    deleteRow(index) {
+      const data = new FormData();
+      data.append("deleteIndex", index);
+
+      axios.post(this.apiUrl, data).then((response) => {
+        this.todolist = response.data;
+      });
+    },
   },
 
   mounted() {

@@ -20,6 +20,13 @@ if (isset($_POST['index'])) {
     file_put_contents('todo-list.json', json_encode($list));
 }
 
+//elimina un elemento dalla lista
+if (isset($_POST['deleteIndex'])) {
+    array_splice($list, $_POST['deleteIndex'], 1);
+    file_put_contents('todo-list.json', json_encode($list));
+}
+
+
 header('Content-Type: application/json');
 
 echo json_encode($list);
