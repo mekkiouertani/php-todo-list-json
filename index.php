@@ -17,9 +17,35 @@
 </head>
 
 <body class=" bg-secondary">
-    <div id="app" class="container">
-        <h1>titolo</h1>
+    <div id="app">
+        <section class="todo-list py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="display-1 text-light">Todo List</h1>
+                        <ul class="list-group list-group-flush border border-1 rounded">
+                            <li v-for="(task, index) in todolist" :key="index" class="list-group-item ">{{task}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="add-todo">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group mb-3">
+                            <input v-model="newTask" type="text" class="form-control"
+                                placeholder="Inserisci elemento..." aria-label="Inserisci nuovo elemento per la lista"
+                                aria-describedby="button-add">
+                            <button class="btn btn-outline-warning" type="button" id="button-add"
+                                @click="addTask">Inserisci</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-</body>
 
 </html>
